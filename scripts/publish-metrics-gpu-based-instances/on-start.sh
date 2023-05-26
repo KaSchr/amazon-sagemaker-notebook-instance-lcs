@@ -10,13 +10,14 @@ set -e
 #   2. Ensure the Notebook Instance execution role permissions to cloudwatch:PutMetricData to publish the system-level metrics
 #
 # https://aws.amazon.com/cloudwatch/pricing/
+# amazon-cloudwatch-agent.json adapted to collect gpu data https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.html
 
 # PARAMETERS
 NOTEBOOK_INSTANCE_NAME=$(jq '.ResourceName' \
                       /opt/ml/metadata/resource-metadata.json --raw-output)
 
 echo "Fetching the CloudWatch agent configuration file."
-wget https://raw.githubusercontent.com/aws-samples/amazon-sagemaker-notebook-instance-lifecycle-config-samples/master/scripts/publish-instance-metrics/amazon-cloudwatch-agent.json
+wget https://raw.githubusercontent.com/KaSchr/amazon-sagemaker-notebook-instance-lcs/master/scripts/publish-metrics-gpu-based-instances/amazon-cloudwatch-agent.json
 
 sed -i -- "s/MyNotebookInstance/$NOTEBOOK_INSTANCE_NAME/g" amazon-cloudwatch-agent.json
 
