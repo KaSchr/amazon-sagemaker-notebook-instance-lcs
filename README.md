@@ -6,7 +6,11 @@ A collection of sample scripts to customize [Amazon SageMaker Notebook Instances
 
 Lifecycle Configurations provide a mechanism to customize Notebook Instances via shell scripts that are executed during the lifecycle of a Notebook Instance.
 
-#### Sample Scripts
+#### New/Adapted Scripts
+* [publish-metrics-gpu-based-instances](scripts/add-pypi-repository) - xxxx
+* [auto-stop-idle-and-detailed-monitoring]() - xxx
+
+#### Sample Scripts (from parent repo)
 
 * [add-pypi-repository](scripts/add-pypi-repository) - This script adds a private PyPi repository in addition to or instead of pypi.org.
 * [auto-stop-idle](scripts/auto-stop-idle) - This script stops a SageMaker notebook once it's idle for more than 1 hour. (default time)
